@@ -17,6 +17,14 @@ If the input is paper, print "You've chosen paper"
 If the input is scissors, print "You've chosen scissors"
 Return prompt variable
 
+Initialize variables that will contain human score and computer score with initial value of 0
+
+Create a function that will play a single round of RPS using human choice and computer choice arguments
+Check the conditions for human and computer choices, if conditions are met then assign score to either human or computer
+and print alert message
+
+Declare that human selection is retrieved from getHumanChoice function
+Declar that computer selection is retrieved from getComputerCHoice function
 */
 
 function getComputerChoice() {
@@ -28,31 +36,66 @@ function getComputerChoice() {
 
     let choiceValue = getRandomInt(0, 3)
     if (choiceValue === 2) {
-        choiceValue = "Rock"
+        choiceValue = "Rock";
     } else if (choiceValue === 1) {
-        choiceValue = "Paper"
+        choiceValue = "Paper";
     } else if (choiceValue === 0) {
-        choiceValue = "Scissors"
+        choiceValue = "Scissors";
     } else {
-        choiceValue = "There's something wrong"
+        choiceValue = "There's something wrong";
     }
 
-    return choiceValue
+    return choiceValue;
 }
 
 function getHumanChoice() {
     const askUserChoice = prompt("Rock, paper, scissors")
 
     if (askUserChoice.toLowerCase() === "rock") {
-        alert("You've chosen ROCK!")
+        alert("You've chosen ROCK!");
     } else if (askUserChoice.toLowerCase() === "paper") {
-        alert("You've chosen PAPER!")
+        alert("You've chosen PAPER!");
     } else if (askUserChoice.toLowerCase() === "scissors!") {
-        alert("You've chosen SCISSORS!")
+        alert("You've chosen SCISSORS!");
     } else {
-        alert("You FOOL")
-    }
+        alert("You FOOL");
+    };
 
-    return askUserChoice
+    return askUserChoice;
 }
 
+let humanScore = 0;
+let computerScore = 0;
+
+const humanChoice = getHumanChoice()
+const computerChoice = getComputerChoice()
+
+function playROund(humanChoice, computerChoice) {
+    if (humanChoice.toLowerCase() === "rock" && computerChoice.toLowerCase() === "rock") {
+        console.log("Stalemate! Rock equals rock");
+    } else if (humanChoice.toLowerCase() === "paper" && computerChoice.toLowerCase() === "paper") {
+        console.log("Stalemate! Paper equals paper");
+    } else if (humanChoice.toLowerCase() === "scissors" && computerChoice.toLowerCase() === "scissors") {
+        console.log("Stalemate! Scissors equals scissors");
+    } else if (humanChoice.toLowerCase() === "rock" && computerChoice.toLowerCase() === "paper") {
+        console.log("You lose! Paper beats rock");
+        computerScore += 10;
+    } else if (humanChoice.toLowerCase() === "rock" && computerChoice.toLowerCase() === "scissors") {
+        console.log("You win! Rock beats scissors");
+        humanScore += 10;
+    } else if (humanChoice.toLowerCase() === "paper" && computerChoice.toLowerCase() === "rock") {
+        console.log("You win! Paper beats rock");
+        humanScore += 10;
+    } else if (humanChoice.toLowerCase() === "paper" && computerChoice.toLowerCase() === "scissors") {
+        console.log("You lose! Scissors beats paper");
+        computerScore += 10; 
+    } else if (humanChoice.toLowerCase() === "scissors" && computerChoice.toLowerCase() === "paper") {
+        console.log("You win! Scissors beats paper");
+        humanScore += 10;
+    } else if (humanChoice.toLowerCase() === "scissors" && computerChoice.toLowerCase() === "rock") {
+        console.log("You lose! Rock beats scissors");
+        computerScore += 10; 
+    } else {
+        console.log("There's something wrong")
+    }
+}
