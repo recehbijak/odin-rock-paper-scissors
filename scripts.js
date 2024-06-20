@@ -29,8 +29,15 @@ Declar that computer selection is retrieved from getComputerCHoice function
 
 */
 
-function getComputerChoice() {
-    function getRandomInt(min, max) {
+
+
+function playGame(rounds) {
+    let humanScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < rounds; i++) {
+            function getComputerChoice() {
+        function getRandomInt(min, max) {
         const minCeiled = Math.ceil(min);
         const maxFloored = Math.floor(max);
         return Math.floor(Math.random() * (maxFloored-minCeiled) + minCeiled);
@@ -65,38 +72,44 @@ function getHumanChoice() {
 
     return askUserChoice;
 }
-
-function playGame(rounds) {
-    let humanScore = 0;
-    let computerScore = 0;
-
+    
     function playRound(humanChoice, computerChoice) {
         if (humanChoice.toLowerCase() === "rock" && computerChoice.toLowerCase() === "rock") {
             console.log("Stalemate! Rock equals rock");
+            alert("Stalemate! Rock equals rock");
         } else if (humanChoice.toLowerCase() === "paper" && computerChoice.toLowerCase() === "paper") {
             console.log("Stalemate! Paper equals paper");
+            alert("Stalemate! Paper equals paper");
         } else if (humanChoice.toLowerCase() === "scissors" && computerChoice.toLowerCase() === "scissors") {
             console.log("Stalemate! Scissors equals scissors");
+            alert("Stalemate! Scissors equals scissors");
         } else if (humanChoice.toLowerCase() === "rock" && computerChoice.toLowerCase() === "paper") {
             console.log("You lose! Paper beats rock");
+            alert("You lose! Paper beats rock");
             computerScore += 10;
         } else if (humanChoice.toLowerCase() === "rock" && computerChoice.toLowerCase() === "scissors") {
             console.log("You win! Rock beats scissors");
+            alert("You win! Rock beats scissors");
             humanScore += 10;
         } else if (humanChoice.toLowerCase() === "paper" && computerChoice.toLowerCase() === "rock") {
             console.log("You win! Paper beats rock");
+            alert("You win! Paper beats rock");
             humanScore += 10;
         } else if (humanChoice.toLowerCase() === "paper" && computerChoice.toLowerCase() === "scissors") {
             console.log("You lose! Scissors beats paper");
+            alert("You lose! Scissors beats paper");
             computerScore += 10; 
         } else if (humanChoice.toLowerCase() === "scissors" && computerChoice.toLowerCase() === "paper") {
             console.log("You win! Scissors beats paper");
+            alert("You win! Scissors beats paper");
             humanScore += 10;
         } else if (humanChoice.toLowerCase() === "scissors" && computerChoice.toLowerCase() === "rock") {
             console.log("You lose! Rock beats scissors");
+            alert("You lose! Rock beats scissors");
             computerScore += 10; 
         } else {
             console.log("There's something wrong");
+            alert("There's something wrong");
         }
 
         return;
@@ -104,12 +117,16 @@ function playGame(rounds) {
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
 
-    for (let i = 0; i < rounds; i++) {
+            
             playRound(humanSelection, computerSelection);
             console.log("Your score: " + humanScore);
+            console.log("Computer score: " + computerScore)
         }
-    return;
+        //change function below so that it will show TIE message when user and computer are tied
+        return humanScore > computerScore ? console.log("YOU WIN!") : console.log ("YOU LOSE.");
 }
+
+playGame(5);
 
 /*
 Create a new function named playGame
