@@ -53,6 +53,7 @@ function alertWinLose(message, scoreMessage) {
 
 const alertHumanScore = document.createElement("p");
 const alertComputerScore = document.createElement("p");
+alertComputerScore.style.marginTop = "0";
 
 function showScore() {
     const scoreCont = document.querySelector("#score-container");
@@ -91,7 +92,8 @@ function alertGameOver() {
     msgGameWinner.setAttribute("class", "scale-in-center")
     const msgPlayAgain = document.createElement("h3");
     msgPlayAgain.innerText = "Pick a weapon below to start again";
-    msgPlayAgain.setAttribute("class", "scale-in-center");
+    msgPlayAgain.style.fontSize = "1.5em"
+    msgPlayAgain.style.marginTop = "0"
 
     rsdArena.appendChild(msgGameOver);
     rsdArena.appendChild(msgGameWinner);
