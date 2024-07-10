@@ -53,16 +53,68 @@ function getComputerChoice() {
     return choiceValue.toLowerCase();
 }
 
-function getHumanChoice() {
-        let askUserChoice = prompt("Rock, paper, scissors");
-
-        return askUserChoice.toLowerCase();
-}
-
 let humanScore = 0;
 let computerScore = 0;
 
+const rsdButton = document.querySelectorAll("button");
+const rsdArena = document.querySelector("#rsd-arena-container");
+const alertText = document.createElement("h3");
+const scoreBoard = document.createElement("div");
+
+function alertWinLose(message) {
+    alertText.textContent = message;
+    rsdArena.appendChild(alertText);
+}
+
+const alertHumanScore = document.createElement("p");
+const alertComputerScore = document.createElement("p");
+
+function showScore() {
+    const scoreCont = document.querySelector("#score-container");
+    scoreCont.appendChild(scoreBoard);
+
+    alertHumanScore.innerText = "Your score: " + humanScore;
+    scoreBoard.appendChild(alertHumanScore);
+
+    alertComputerScore.innerText = "Computer score: " + computerScore;
+    scoreBoard.appendChild(alertComputerScore);
+
+}
+
 function playRound() {
+    const humanChoice = this.value; 
+    const computerChoice = getComputerChoice();
+
+    if (humanChoice === computerChoice) {
+        alertWinLose("DRAW");
+    } else if (humanChoice === "rock" && computerChoice === "scissors") {
+        alertWinLose("YOU WIN");
+        humanScore += 5;
+    } else if (humanChoice === "scissors" && computerChoice === "dynamite") {
+        alertWinLose("YOU WIN");
+        humanScore += 5;
+    } else if (humanChoice === "dynamite" && computerChoice === "rock") {
+        alertWinLose("YOU WIN");
+        humanScore += 5;
+    } else {
+        alertWinLose("YOU LOSE");
+        computerScore += 5;
+    }
+
+    showScore();
+    console.log(this.value);
+    console.log(humanScore);
+}
+
+rsdButton.forEach((button) => {
+    button.addEventListener("click", playRound);
+});
+
+
+
+
+
+/* function playRound() {
   
     let humanChoice = getHumanChoice();
     let computerChoice = getComputerChoice();
@@ -109,23 +161,24 @@ function playRound() {
         return;
 }
 
-function playGame(rounds) {
+*/
+//function playGame(rounds) {
 
-for (let i = 0; i < rounds; i++) {
+//for (let i = 0; i < rounds; i++) {
     
-        playRound();
+//        playRound();
       
-        let alertHumanScore = "Your score: " + humanScore;
-        let alertComputerScore= "Computer score: " + computerScore; 
+//        let alertHumanScore = "Your score: " + humanScore;
+//        let alertComputerScore= "Computer score: " + computerScore; 
   
-        console.log(alertHumanScore);
-        console.log(alertComputerScore);
-        alert(alertHumanScore + "\n" + alertComputerScore);
+//        console.log(alertHumanScore);
+//        console.log(alertComputerScore);
+//        alert(alertHumanScore + "\n" + alertComputerScore);
   
-    }
+//    }
 
-    return humanScore > computerScore ? console.log("YOU WIN!") : console.log ("YOU LOSE.");
-}
+//   return humanScore > computerScore ? console.log("YOU WIN!") : console.log ("YOU LOSE.");
+//}
 
 
 /*
