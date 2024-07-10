@@ -43,14 +43,65 @@ body {
 .arena-wrapper {
     border-style: dotted;
     border-width: 1px;
-    height: 20em;
+    min-height: 20em;
     width: 100%;
     margin: 0;
 }
 
+.arena-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: dotted white;
+    border-width: 1px;
+    flex-grow: 1;
+    padding: 1em 5em;
+}
+
+.arena-container h1 {
+    font-family: "Bowlby One", sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2em;
+    font-weight: 400;
+}
+
+.arena-container h2 {
+    font-family: "Bowlby One", sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2em;
+    font-weight: 400;
+}
+
+/* JS styling test*/
+
+#arena-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.player-card {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
+#arena-bottom {
+    margin: 20px auto;
+}
+
+/* JS styling test*/
+
 .cta-text {
     font-family: "Bowlby One", sans-serif;
-    font-size: 2em;
+    font-size: 2.1em;
     margin-top: 1em;
     margin-bottom: 1em;
     font-weight: 400;
@@ -63,7 +114,8 @@ body {
     gap: 200px;
 }
 
-.rsd-button {
+.rsd-button,
+.rsd-chosen {
     flex-grow: 0;
     flex-shrink: 1;
     border-radius: 50%;
@@ -78,6 +130,20 @@ body {
     color: white;
     font-size: 4em;
 }
+
+.rsd-chosen {
+    width: 200px;
+    height: 200px;
+    padding: 0,3em;
+    text-align: center;
+    background-color: white;
+    border: solid white;
+    border-width: 3px;
+    color: red;
+    font-size: 5em;
+}
+
+
 
 .rsd-button:hover {
     cursor: pointer;
@@ -97,3 +163,12 @@ body {
     border: none;
 }
 
+
+.score-container {
+    margin-top: 40px;
+    margin-bottom: 5px;
+    font-family: "Secular One", sans-serif;
+    font-size: 1.8em;
+    font-weight: 400;
+    text-align: center;
+}

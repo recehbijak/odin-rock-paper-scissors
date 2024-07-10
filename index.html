@@ -13,10 +13,25 @@
 <body>
     <div id="rsd-header" class="rsd-header">
         <h1>ROCK, SCISSORS, DYNAMITE!</h1>
-        <h2>A RECEHBIJAK PROJECT</h2>
+        <h2>EXCEPT IT'S NOT DYNAMITE</h2>
     </div>
     <div id="arena-wrapper" class="arena-wrapper">
-        <div id="rsd-arena-container"></div>
+        <div id="rsd-arena-container" class="arena-container">
+            <!-- <h1 id="waiting-message">WAITING FOR PLAYER..</h1> -->
+            <div id="arena-target">
+                <div id="arena-top">
+                    <div id="human-choice" class="player-card">
+                        <h2 id="player-tag">Player</h2>
+                        <button id="player-choice" class="rsd-chosen"></button>
+                    </div>
+                    <div id="vs"><h2>vs</h2></div>
+                    <div id="comp-choice" class="player-card">
+                        <h2 id="enemy-tag">Enemy</h2>
+                        <button id="enemy-choice" class="rsd-chosen" >💣</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="button-wrapper" class="button-wrapper">
         <h3 class="cta-text">CHOOSE ONE:</h3>
