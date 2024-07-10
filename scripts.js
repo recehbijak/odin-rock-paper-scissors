@@ -41,6 +41,7 @@ let computerScore = 0;
 const rsdButton = document.querySelectorAll("button");
 const alertText = document.createElement("h2");
 const alertScore = document.createElement("h3");
+alertScore.style.marginTop = "0"
 const scoreBoard = document.createElement("div");
 
 function alertWinLose(message, scoreMessage) {
