@@ -1,0 +1,99 @@
+body {
+    font-family: Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+    color: white;
+    margin: 0;
+}
+
+.rsd-header, 
+.arena-wrapper,
+.button-wrapper,
+.score-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rsd-header {
+    margin: 2em auto;
+    
+}
+
+.rsd-header h1 {
+    font-family: "Bowlby One", sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 3em;
+    font-weight: 400;
+}
+
+.rsd-header h2 {
+    font-family: "Secular One", sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1,5em;
+    font-weight: 300;
+}
+
+.arena-wrapper {
+    border-style: dotted;
+    border-width: 1px;
+    height: 20em;
+    width: 100%;
+    margin: 0;
+}
+
+.cta-text {
+    font-family: "Bowlby One", sans-serif;
+    font-size: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-weight: 400;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 200px;
+}
+
+.rsd-button {
+    flex-grow: 0;
+    flex-shrink: 1;
+    border-radius: 50%;
+    margin: 0 30px;
+    width: 150px;
+    height: 150px;
+    padding: 0,3em;
+    text-align: center;
+    background-color: red;
+    border: solid white;
+    border-width: 3px;
+    color: white;
+    font-size: 4em;
+}
+
+.rsd-button:hover {
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+    background-color: white;
+    filter: drop-shadow(0 0 13px crimson);
+    color: red;
+    border: none;
+}
+
+.rsd-button:active {
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+    background-color: #e6e6e6;
+    filter: drop-shadow(0 0 13px crimson);
+    color: red;
+    border: none;
+}
+
