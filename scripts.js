@@ -10,8 +10,8 @@ rsdArena.removeChild(targetArena);
 
 function getRandomInt(min, max) {
     const minCeiled = Math.ceil(min);
-    const maxFloored = Math.floor(max);
-    return Math.floor(Math.random() * (maxFloored-minCeiled) + minCeiled);
+    const maxFlooscore = Math.floor(max);
+    return Math.floor(Math.random() * (maxFlooscore-minCeiled) + minCeiled);
 }
 
 let compChoiceInnerText = '';
@@ -21,7 +21,7 @@ function getComputerChoice() {
     let choiceValue = getRandomInt(0, 3)
     if (choiceValue === 2) {
         choiceValue = "rock";
-        compChoiceInnerText = "🪨"
+        compChoiceInnerText = "🗿"
     } else if (choiceValue === 1) {
         choiceValue = "scissors";
         compChoiceInnerText = "✂️"
@@ -66,11 +66,46 @@ function showScore() {
 
 }
 
+function highestScore() {
+    if (humanScore > computerScore) {
+        return "Player"
+    } else {
+        return "Enemy"
+    }
+}
+
+function alertGameOver() {
+    humanScore = 0;
+    computerScore = 0;
+    
+    scoreBoard.remove();
+    rsdArena.removeChild(targetArena);
+    rsdArena.removeChild(alertText);
+    rsdArena.removeChild(alertScore);
+
+    const msgGameOver = document.createElement("h1");
+    msgGameOver.innerText = "GAME OVER!";
+    msgGameOver.setAttribute("class", "scale-in-center");
+    const msgGameWinner = document.createElement("h2");
+    msgGameWinner.innerText = highestScore()+" wins the game";
+    msgGameWinner.setAttribute("class", "scale-in-center")
+    const msgPlayAgain = document.createElement("h3");
+    msgPlayAgain.innerText = "Pick a weapon below to start again";
+    msgPlayAgain.setAttribute("class", "scale-in-center");
+
+    rsdArena.appendChild(msgGameOver);
+    rsdArena.appendChild(msgGameWinner);
+    rsdArena.appendChild(msgPlayAgain);
+
+}
 
 function playRound() {
     const humanChoice = this.value; 
     const computerChoice = getComputerChoice();
 
+    while (rsdArena.hasChildNodes()) {
+        rsdArena.removeChild(rsdArena.firstChild);
+    }
     rsdArena.appendChild(targetArena);
     waitMessage.remove();
 
@@ -96,9 +131,13 @@ function playRound() {
     computerChoiceIcon.innerText = compChoiceInnerText;
 
     showScore();
+
     console.log(this.value);
     console.log(humanScore);
-    console.log(this.innerText)
+    console.log(this.innerText);
+    if (humanScore > 20 || computerScore > 20) {
+        alertGameOver()
+    };
 }
 
 rsdButton.forEach((button) => {
